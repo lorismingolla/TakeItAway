@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+@font-face {
+    font-family: reddit-mono;
+    src: url(../assets/fonts/RedditMono-VariableFont_wght.ttf);
+}
+// Override Bootstrap variables before importing Bootstrap
+$btn-border-radius: 0;
+$btn-border-color: black;
+$font-family-base: "reddit-mono";
+// Import Bootstrap's main file
+@import "bootstrap/scss/bootstrap";
