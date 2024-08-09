@@ -1,1 +1,4 @@
-<app-menu-item></app-menu-item><app-menu-item></app-menu-item><app-menu-item></app-menu-item><app-menu-item></app-menu-item>
+<ng-container *ngFor="let pizza of pizzas">
+    <app-menu-item [pizza]="pizza">
+    </app-menu-item>
+</ng-container>

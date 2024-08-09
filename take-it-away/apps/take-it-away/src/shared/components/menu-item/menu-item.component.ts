@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PizzaWithToppings } from '../../types/PizzaTypes';
 
 @Component({
     standalone: true,
@@ -11,12 +12,12 @@ import { Component, OnInit } from '@angular/core';
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="https://example.com/pizza.jpg" class="img-fluid rounded" alt="Pizza">
+                            <img src="http://127.0.0.1:54321/storage/v1/object/public/public_images/pizzas/pizza-margherita.jpg" class="img-fluid rounded" alt="Pizza">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="card-title">Margherita Pizza</h5>
-                            <p class="card-text">Classic delight with 100% real mozzarella cheese, vine-ripened tomatoes, and fresh basil.</p>
-                            <p class="card-text"><strong>$9.99</strong></p>
+                            <h5 class="card-title">{{pizza?.name}}</h5>
+                            <p class="card-text">{{toppingText}}</p>
+                            <p class="card-text"><strong>$ {{pizza?.base_price}}</strong></p>
                             <a href="#" class="btn btn-primary">Order Now</a>
                         </div>
                     </div>
@@ -28,5 +29,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MenuItemComponent {
-
+    @Input()
+    pizza: PizzaWithToppings | undefined;
+    
+    get toppingText() {
+        const lastTopping = this.pizza?.toppings.splice(this.pizza.toppings.length-1) as any
+        return this.pizza?.toppings.map((x:any) => x.name).join(", ").concat(` and ${lastTopping[0].name}`)
+    }
 }
