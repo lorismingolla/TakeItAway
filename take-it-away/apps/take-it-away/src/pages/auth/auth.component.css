@@ -1,0 +1,7 @@
+form{
+    border: 1px black solid;
+}
+.description{
+    display: flex;
+    justify-content: center;
+}

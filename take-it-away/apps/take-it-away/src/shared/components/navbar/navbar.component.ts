@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-    standalone: true,
+  standalone: true,
+  imports:[RouterLink],
     selector: 'app-navbar',
     template: `<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
  <div class="container-fluid">
@@ -15,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" [routerLink]="['/order']">Order now!</a>
         </li>
         </ul>
     </div>
